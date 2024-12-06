@@ -3,8 +3,11 @@
 /public/build
 /public/hot
 /public/storage
-/storage/*.key
-/storage/pail
+# /storage/*.key
+# /storage/pail
+# Allow storage/app/public/uploads
+!/storage/app/public/
+!/storage/app/public/uploads/
 /vendor
 .env
 .env.backup

@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80" # Map port 8080 on host to port 80 in the container
+    volumes:
+      - ./backend:/var/www/html
+    environment:
+      - APP_ENV=${APP_ENV:-production}
+    command: >
+        sh -c "php artisan storage:link && apache2-foreground"
